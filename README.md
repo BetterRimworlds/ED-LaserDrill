@@ -1,3 +1,5 @@
+This project has been retired, in favor of the excellent [**ED-LaserDrill (Continued) mod**](https://steamcommunity.com/sharedfiles/filedetails/?id=2570228927).
+
 # ED-LaserDrill
 This is the Readme for the Enhanced Devemopment Mod, ED-LaserDrill, for the Game Rimworld.
 
