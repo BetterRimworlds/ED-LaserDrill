@@ -189,6 +189,15 @@ namespace Jaxxa.EnhancedDevelopment.LaserDrill.Comps
 
         } //CompGetGizmosExtra()
 
+#if RIMWORLD16 || RIMWORLD17
+        public override void PostDeSpawn(Map map, DestroyMode mode)
+        {
+            map.GetComponent<LaserDrillMapComp>().Deregister(this);
+            this.SetRequiredDrillScanningToDefault();
+
+            base.PostDeSpawn(map, mode);
+        }
+#else
         public override void PostDeSpawn(Map map)
         {
             map.GetComponent<LaserDrillMapComp>().Deregister(this);
@@ -196,6 +205,7 @@ namespace Jaxxa.EnhancedDevelopment.LaserDrill.Comps
 
             base.PostDeSpawn(map);
         }
+#endif
 
         #endregion Overrides
 

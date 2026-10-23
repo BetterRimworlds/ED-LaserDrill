@@ -62,3 +62,7 @@ Aditional details can be fount in About.xml
  * Updated to Rimworld v1.5.
  * LaserDrills now drop partial resources when destroyed on use.
 
+**v2.4.0: 2026-10-23**
+ * Updated to Rimworld v1.6.
+ * Updated to Rimworld v1.7.
+

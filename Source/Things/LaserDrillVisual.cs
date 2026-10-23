@@ -62,7 +62,11 @@ namespace Jaxxa.EnhancedDevelopment.LaserDrill.Things
             MoteMaker.MakePowerBeamMote(this.Position, this.Map);
         }
 
+#if RIMWORLD16 || RIMWORLD17
+        protected override void Tick()
+#else
         public override void Tick()
+#endif
         {
             base.Tick();
 
@@ -88,7 +92,7 @@ namespace Jaxxa.EnhancedDevelopment.LaserDrill.Things
             Scribe_Values.Look<int>(ref this.StartTick, "StartTick", 0, false);
         }
 
-        #if !RIMWORLD15
+        #if !RIMWORLD15 && !RIMWORLD17
         public override void Draw()
         {
             base.Comps_PostDraw();
@@ -104,7 +108,7 @@ namespace Jaxxa.EnhancedDevelopment.LaserDrill.Things
             IntVec3 c = (from x in GenRadial.RadialCellsAround(base.Position, 25f, true)
                          where x.InBounds(base.Map)
                          select x).RandomElementByWeight((IntVec3 x) => LaserDrillVisual.DistanceChanceFactor.Evaluate(x.DistanceTo(base.Position)));
-            #if !RIMWORLD15
+            #if !RIMWORLD15 && !RIMWORLD17
             FireUtility.TryStartFireIn(c, base.Map, Rand.Range(0.1f, 0.925f));
             #else
             FireUtility.TryStartFireIn(c, base.Map, Rand.Range(0.1f, 0.925f), this.LaserDrill);
